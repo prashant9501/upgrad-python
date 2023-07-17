@@ -1,0 +1,32 @@
+Apply PCA on:
+
+1. The original vocab features using the CV: 16878 features; acc = 0.8895 +/- 0.004604 
+Result: PCA Failed.
+
+so we applied TruncatedSVD to reduce to 2206 dim: acc= 0.8857 +/- 0.00457
+These 2206 dim are retianing only 90% of the total variance in the dataset, and still able to reain the same level of accuracy!!
+
+so we applied TruncatedSVD to reduce to 300 dim: acc= 0.8856 +/- 0.003796
+These 300 dim are retianing only 63.44% of the total variance in the dataset, and still able to reain the same level of accuracy!!
+
+so we applied TruncatedSVD to reduce to 30 dim: acc= 0.8496 +/- 0.00767
+These 30 dim are retianing only 32.25% of the total variance in the dataset, and still able to reain the same level of accuracy!!
+
+CV will only 300 FEATURES: acc = 0.8591 +- 0.004176 
+CV will only 30 FEATURES: acc = 0.7604  +- 0.002868
+
+
+Inference: using DIm Redn to get lesser dimensions is BETTER than using filters in CV to reduce the no. of features.
+
+2. CV with filters + stopwords : 2206 features, acc= 0.8723  +/-  0.004289
+CV + filters+stopwords +  300 features ; acc = 0.8582 +/- 0.0052
+
+
+3. Word Embeddings: Dim is 300 (vector_size for each word). : 0.8500 +/- 003030
+so we applied TruncatedSVD to reduce to 30 dim: acc= 0.8490 +/- 0.003879
+exapl_var_ratio = 0.999
+
+so we applied TruncatedSVD to reduce to 5 dim: acc= 0.8452 +/- 0.006589
+exapl_var_ratio = 0.988
+
+
